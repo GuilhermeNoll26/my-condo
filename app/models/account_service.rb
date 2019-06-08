@@ -1,0 +1,2 @@
+class AccountService < ApplicationRecord
+end

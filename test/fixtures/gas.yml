@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gas_clock: MyString
+  reading_date: 2019-06-06
+  comments: MyText
+
+two:
+  gas_clock: MyString
+  reading_date: 2019-06-06
+  comments: MyText

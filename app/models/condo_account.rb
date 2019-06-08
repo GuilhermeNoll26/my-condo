@@ -1,0 +1,2 @@
+class CondoAccount < ApplicationRecord
+end

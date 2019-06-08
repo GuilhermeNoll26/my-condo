@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Expenditures</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Expenditure type</th>
+      <th>Value</th>
+      <th>Comments</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expenditures.each do |expenditure| %>
+      <tr>
+        <td><%= expenditure.expenditure_type %></td>
+        <td><%= expenditure.value %></td>
+        <td><%= expenditure.comments %></td>
+        <td><%= link_to 'Show', expenditure %></td>
+        <td><%= link_to 'Edit', edit_expenditure_path(expenditure) %></td>
+        <td><%= link_to 'Destroy', expenditure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Expenditure', new_expenditure_path %>

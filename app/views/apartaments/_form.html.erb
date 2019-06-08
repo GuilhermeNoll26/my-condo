@@ -1,0 +1,32 @@
+<%= form_with(model: apartament, local: true) do |form| %>
+  <% if apartament.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apartament.errors.count, "error") %> prohibited this apartament from being saved:</h2>
+
+      <ul>
+      <% apartament.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ocupation_status %>
+    <%= form.text_field :ocupation_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

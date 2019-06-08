@@ -10,10 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_230445) do
+ActiveRecord::Schema.define(version: 2019_06_08_051514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_services", force: :cascade do |t|
+    t.string "collect_type"
+    t.integer "pay_date"
+    t.decimal "value"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "accounts", force: :cascade do |t|
+    t.decimal "original_value"
+    t.decimal "open_value"
+    t.integer "pay_date"
+    t.string "comments"
+    t.string "account_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "apartaments", force: :cascade do |t|
+    t.integer "number"
+    t.string "ocupation_status"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "person_tenant_id"
+    t.bigint "person_owner_id"
+    t.index ["person_owner_id"], name: "index_apartaments_on_person_owner_id"
+    t.index ["person_tenant_id"], name: "index_apartaments_on_person_tenant_id"
+  end
+
+  create_table "cashes", force: :cascade do |t|
+    t.decimal "balance"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "condo_accounts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "expenditures", force: :cascade do |t|
+    t.string "expenditure_type"
+    t.decimal "value"
+    t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "gas", force: :cascade do |t|
+    t.string "gas_clock"
+    t.date "reading_date"
+    t.text "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "people", force: :cascade do |t|
     t.string "name"

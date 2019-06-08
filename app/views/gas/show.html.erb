@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Gas clock:</strong>
+  <%= @ga.gas_clock %>
+</p>
+
+<p>
+  <strong>Reading date:</strong>
+  <%= @ga.reading_date %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @ga.comments %>
+</p>
+
+<%= link_to 'Edit', edit_ga_path(@ga) %> |
+<%= link_to 'Back', gas_path %>

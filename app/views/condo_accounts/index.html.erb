@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Condo Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @condo_accounts.each do |condo_account| %>
+      <tr>
+        <td><%= link_to 'Show', condo_account %></td>
+        <td><%= link_to 'Edit', edit_condo_account_path(condo_account) %></td>
+        <td><%= link_to 'Destroy', condo_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Condo Account', new_condo_account_path %>
