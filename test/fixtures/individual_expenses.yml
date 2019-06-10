@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  value: 9.99
+  apartament: one
+  notes: MyText
+
+two:
+  description: MyString
+  value: 9.99
+  apartament: two
+  notes: MyText

@@ -10,29 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_051514) do
+ActiveRecord::Schema.define(version: 2019_06_09_235319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "account_services", force: :cascade do |t|
-    t.string "collect_type"
-    t.integer "pay_date"
-    t.decimal "value"
-    t.text "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "accounts", force: :cascade do |t|
-    t.decimal "original_value"
-    t.decimal "open_value"
-    t.integer "pay_date"
-    t.string "comments"
-    t.string "account_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "apartaments", force: :cascade do |t|
     t.integer "number"
@@ -46,30 +27,9 @@ ActiveRecord::Schema.define(version: 2019_06_08_051514) do
     t.index ["person_tenant_id"], name: "index_apartaments_on_person_tenant_id"
   end
 
-  create_table "cashes", force: :cascade do |t|
-    t.decimal "balance"
+  create_table "cashiers", force: :cascade do |t|
     t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "condo_accounts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "expenditures", force: :cascade do |t|
-    t.string "expenditure_type"
-    t.decimal "value"
-    t.string "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "gas", force: :cascade do |t|
-    t.string "gas_clock"
-    t.date "reading_date"
-    t.text "comments"
+    t.decimal "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

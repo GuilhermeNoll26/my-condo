@@ -1,2 +1,0 @@
-class Ga < ApplicationRecord
-end

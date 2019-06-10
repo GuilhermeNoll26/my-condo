@@ -7,3 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create email: 'a@a', password: '123456'
+
+Person.create name: 'Guilherme Noll', type_person: 'Física', document: '102.944.419-64'
+
+Person.create name: 'Graziela Schmitz', type_person: 'Física', document: '112.946.969-71'
+
+Cashier.create description: 'CAIXA - PRINCIPAL', balance: 535.00
+
+Cashier.create description: 'CONTA CORRENTE - BRADESCO', balance: 1255.00
