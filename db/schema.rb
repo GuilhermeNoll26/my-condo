@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_235319) do
+ActiveRecord::Schema.define(version: 2019_06_11_225117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 2019_06_09_235319) do
     t.integer "number"
     t.string "ocupation_status"
     t.text "notes"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "person_tenant_id"
     t.bigint "person_owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["person_owner_id"], name: "index_apartaments_on_person_owner_id"
     t.index ["person_tenant_id"], name: "index_apartaments_on_person_tenant_id"
   end
@@ -32,6 +32,38 @@ ActiveRecord::Schema.define(version: 2019_06_09_235319) do
     t.decimal "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "condo_bills", force: :cascade do |t|
+    t.string "reference_month"
+    t.bigint "apartament_id"
+    t.boolean "paid"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apartament_id"], name: "index_condo_bills_on_apartament_id"
+  end
+
+  create_table "condo_generations", force: :cascade do |t|
+    t.string "reference_month"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.string "description"
+    t.decimal "value"
+    t.string "reference_month"
+    t.date "due_date"
+    t.bigint "apartament_id"
+    t.bigint "cashier_id"
+    t.text "notes"
+    t.boolean "paid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["apartament_id"], name: "index_entries_on_apartament_id"
+    t.index ["cashier_id"], name: "index_entries_on_cashier_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -57,4 +89,6 @@ ActiveRecord::Schema.define(version: 2019_06_09_235319) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "entries", "apartaments"
+  add_foreign_key "entries", "cashiers"
 end

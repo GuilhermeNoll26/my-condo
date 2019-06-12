@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class IndividualExpenseTest < ActiveSupport::TestCase
+class EntryTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

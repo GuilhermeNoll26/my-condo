@@ -3,11 +3,13 @@
 one:
   description: MyString
   value: 9.99
-  apartament: one
   notes: MyText
+  cashier: one
+  apartament: one
 
 two:
   description: MyString
   value: 9.99
-  apartament: two
   notes: MyText
+  cashier: two
+  apartament: two

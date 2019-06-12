@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
-  value: 9.99
-  cashier: one
+  generation_date: 2019-06-10
+  value_per_apartament: 9.99
   notes: MyText
 
 two:
-  description: MyString
-  value: 9.99
-  cashier: two
+  generation_date: 2019-06-10
+  value_per_apartament: 9.99
   notes: MyText

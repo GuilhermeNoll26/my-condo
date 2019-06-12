@@ -1,6 +1,12 @@
 pt-BR:
   activerecord:
     models:
+        condo_generation:
+          one: "Gerar de Condomínio"
+          other: "Gerar de Condomínios"
+        condo_bill:
+          one: "Conta de Condomínio"
+          other: "Contas de Condomínio"
         apartament:
           one: "Apartamento"
           other: "Apartamentos"
@@ -19,6 +25,9 @@ pt-BR:
         person:
           one: "Pessoa"
           other: "Pessoas"
+        entry:
+          one: "Lançamento"
+          other: "Lançamentos"
   errors:
     messages:
       not_found: "não encontrado"

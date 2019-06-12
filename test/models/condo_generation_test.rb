@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CashOutTest < ActiveSupport::TestCase
+class CondoGenerationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
