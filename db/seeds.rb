@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create email: 'a@a', password: '123456'
+User.create email: 'admin@mycondo.com', password: '123456'
 
 Person.create name: 'Guilherme Noll', type_person: 'Física', document: '102.944.419-64'
 
