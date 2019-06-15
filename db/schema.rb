@@ -36,12 +36,15 @@ ActiveRecord::Schema.define(version: 2019_06_11_225117) do
 
   create_table "condo_bills", force: :cascade do |t|
     t.string "reference_month"
+    t.decimal "value"
     t.bigint "apartament_id"
     t.boolean "paid"
+    t.bigint "destination_cashier_id"
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["apartament_id"], name: "index_condo_bills_on_apartament_id"
+    t.index ["destination_cashier_id"], name: "index_condo_bills_on_destination_cashier_id"
   end
 
   create_table "condo_generations", force: :cascade do |t|
