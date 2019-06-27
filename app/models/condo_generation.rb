@@ -13,18 +13,8 @@ class CondoGeneration < ApplicationRecord
         collective_entries_value = 0.00
         
         result_collective_entries.each do |row|
-          collective_entries_value = row['collective_entries']
+          collective_entries_value = row['collective_entries'].to_d
         end
-        
-        #################################################
-        
-        
-        sql_individual_entries = "select e.apartament_id, sum(e.value) as individual_value from entries e where e.apartament_id != 0 and e.reference_month = '" + self.reference_month + "' group by e.apartament_id;"
-        
-        
-        
-        result_individual_entries = ActiveRecord::Base.connection.exec_query(sql_individual_entries)
-        
         
         result_apartaments.each do |row|
         
@@ -37,32 +27,25 @@ class CondoGeneration < ApplicationRecord
           c.notes = self.notes            
           c.destination_cashier_id = 1
           c.paid = false
-          
-          puts "PRIMEIRO FORRRRRRRRRRRRRRRRR #{ap_id1}"
-            
+          c.value = collective_entries_value.round(2)
+          sql_individual_entries = "select e.apartament_id, sum(e.value) as individual_value from entries e where e.apartament_id= #{ap_id1.to_s} and e.reference_month = '#{self.reference_month}' group by e.apartament_id;"
+          result_individual_entries = ActiveRecord::Base.connection.exec_query(sql_individual_entries)
+        
             result_individual_entries.each do |row|
-                
-              ap_id2 = row['apartament_id']
-            
+              
               individual_value = row['individual_value']
-              puts "SEGUNDOOOOOOOO FORRRRRRRRRRRRRRRRR #{ap_id2} e #{individual_value}"  
-              if ap_id1 == ap_id2
-            
-                c.value = (collective_entries_value + individual_value).to_d
-                puts "PRIMEIRO IFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
-              else
-                c.value = collective_entries_value.to_d
-                puts "aquiiiiiiiiiiiiiiii ELSEEEEEEEEEEEEEEEEEEEE"
+              ap_id2 = row['apartament_id']
+              
+              if (ap_id1 = ap_id2)
+                total_value = (collective_entries_value.to_d + individual_value.to_d)
+                c.value = total_value.round(2)
               end
-            
+              
             end
-            
               c.save
           
         end
-        
-        collective_entries_value = 0.0
-        
+
     end
     
     
