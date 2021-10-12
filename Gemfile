@@ -15,7 +15,7 @@ gem 'rails_admin_material'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'material-sass', '~> 4.1', '>= 4.1.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
